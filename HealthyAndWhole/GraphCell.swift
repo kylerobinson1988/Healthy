@@ -14,8 +14,10 @@ class GraphCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var graph: DesignableGraph!
     
-    var dayArray: [Int] = []
-    var weekArray: [Int] = []
+    var dayArray: [CGFloat] = []
+    var weekArray: [Grouping] = []
+    
+    var scale = 0
     
     var graphCategory: String = "" { didSet { setupGraph() } }
     
@@ -28,47 +30,77 @@ class GraphCell: UITableViewCell {
             switch graphCategory {
                 
             case "water":
-                dayArray.append(Int(log.water!))
+                dayArray.append(CGFloat(log.water!))
             case "breakfastCalories":
-                dayArray.append(Int(log.breakfastCalories!))
+                dayArray.append(CGFloat(log.breakfastCalories!))
             case "lunchCalories":
-                dayArray.append(Int(log.lunchCalories!))
+                dayArray.append(CGFloat(log.lunchCalories!))
             case "dinnerCalories":
-                dayArray.append(Int(log.dinnerCalories!))
+                dayArray.append(CGFloat(log.dinnerCalories!))
             case "snackCalories":
-                dayArray.append(Int(log.snackCalories!))
+                dayArray.append(CGFloat(log.snackCalories!))
             case "sleepHours":
-                dayArray.append(Int(log.sleepTime!))
+                dayArray.append(CGFloat(log.sleepTime!))
             case "stepCount":
-                dayArray.append(Int(log.stepCount!))
+                dayArray.append(CGFloat(log.stepCount!))
             case "activeMinutes":
-                dayArray.append(Int(log.activeMinutes!))
+                dayArray.append(CGFloat(log.activeMinutes!))
             case "mood":
-                dayArray.append(Int(log.mood!))
+                dayArray.append(CGFloat(log.mood!))
             case "closeness":
-                dayArray.append(Int(log.breakfastCalories!))
+                dayArray.append(CGFloat(log.breakfastCalories!))
             default:
                 break
             }
             
         }
         
-        //Now find averages based on weeks
+        //Now find averages based on weeks.
         
-        for week in 0...8 {
+        var index = 0
+        
+        for week in 1...6 {
             
-            for item in weekCount...(weekCount + 6) {
-                
-                
-                
-            }
+            var sum = 0
             
+            for item in Int(dayArray[index])...Int(dayArray[index + 6]) { sum += item }
             
+            weekArray.append(Grouping(name: "Week \(week)", value: CGFloat(sum / 7)))
+                
+            index += 7
             
         }
         
+        //Next, we set up the graph.
         
+        graph.groupings = weekArray
+        graph.type = .Bars
         
+        //Final config for the cell.
+        
+        switch graphCategory {
+            
+        case "water":
+            titleLabel.text = "Water"
+        case "breakfastCalories":
+            titleLabel.text = "Breakfast"
+        case "lunchCalories":
+            titleLabel.text = "Lunch"
+        case "dinnerCalories":
+            titleLabel.text = "Dinner"
+        case "snackCalories":
+            titleLabel.text = "Snacks"
+        case "sleepHours":
+            titleLabel.text = "Sleep"
+        case "stepCount":
+            titleLabel.text = "Steps"
+        case "activeMinutes":
+            titleLabel.text = "Active Minutes"
+        case "mood":
+            titleLabel.text = "Mood"
+        default:
+            titleLabel.text = "Closeness To God"
+        }
         
     }
     
