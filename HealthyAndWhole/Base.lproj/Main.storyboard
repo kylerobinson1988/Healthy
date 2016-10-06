@@ -776,39 +776,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="graphCell" rowHeight="200" id="Uez-ch-vwj" customClass="GraphCell" customModule="HealthyAndWhole" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="200"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="graphCell" rowHeight="175" id="Uez-ch-vwj" customClass="GraphCell" customModule="HealthyAndWhole" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="175"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uez-ch-vwj" id="Zg2-Ez-tV7">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="174.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nwx-n3-Zj5" customClass="DesignableView" customModule="HealthyAndWhole" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="8" width="7" height="49"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="D20-gS-eED"/>
-                                                <constraint firstAttribute="height" constant="48.5" id="I5X-sq-l1M"/>
-                                                <constraint firstAttribute="width" constant="7" id="mRM-Ok-Pg8"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
-                                                    <color key="value" red="0.62342417900000002" green="0.84820778990000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                    <real key="value" value="4"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="D20-gS-eED"/>
-                                                </mask>
-                                            </variation>
-                                        </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GRAPH CELL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lej-GN-aQe">
-                                            <rect key="frame" x="47" y="8" width="139" height="49"/>
+                                            <rect key="frame" x="20" y="8" width="572" height="20"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="48.5" id="LY9-pA-uGk"/>
+                                                <constraint firstAttribute="height" constant="20" id="LY9-pA-uGk"/>
                                                 <constraint firstAttribute="height" constant="30" id="NXO-bc-zbo"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="25"/>
@@ -821,7 +799,7 @@
                                             </variation>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0YX-1R-04e" customClass="DesignableGraph" customModule="HealthyAndWhole" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="64" width="560" height="128"/>
+                                            <rect key="frame" x="20" y="35" width="560" height="132"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="barColor">
@@ -841,18 +819,15 @@
                                         <constraint firstItem="lej-GN-aQe" firstAttribute="leading" secondItem="Zg2-Ez-tV7" secondAttribute="leading" constant="20" id="7SM-9E-Vby"/>
                                         <constraint firstAttribute="bottom" secondItem="0YX-1R-04e" secondAttribute="bottom" constant="7.5" id="E2l-NZ-evb"/>
                                         <constraint firstAttribute="trailing" secondItem="0YX-1R-04e" secondAttribute="trailing" constant="20" id="GeO-an-zr6"/>
-                                        <constraint firstAttribute="bottom" secondItem="Nwx-n3-Zj5" secondAttribute="bottom" constant="8" id="Jc9-Kn-fHN"/>
-                                        <constraint firstItem="Nwx-n3-Zj5" firstAttribute="top" secondItem="Zg2-Ez-tV7" secondAttribute="top" constant="8" id="Oqc-7O-5T8"/>
-                                        <constraint firstItem="Nwx-n3-Zj5" firstAttribute="leading" secondItem="Zg2-Ez-tV7" secondAttribute="leading" constant="20" id="SzR-hv-7lD"/>
                                         <constraint firstItem="0YX-1R-04e" firstAttribute="leading" secondItem="Zg2-Ez-tV7" secondAttribute="leading" constant="20" id="Vi0-3t-St9"/>
                                         <constraint firstItem="lej-GN-aQe" firstAttribute="top" secondItem="Zg2-Ez-tV7" secondAttribute="top" constant="8" id="XcY-Jh-WqA"/>
-                                        <constraint firstItem="lej-GN-aQe" firstAttribute="leading" secondItem="Nwx-n3-Zj5" secondAttribute="trailing" constant="20" id="eog-QG-OuI"/>
                                         <constraint firstItem="0YX-1R-04e" firstAttribute="top" secondItem="lej-GN-aQe" secondAttribute="bottom" constant="7.5" id="ndQ-nc-waq"/>
                                         <constraint firstAttribute="bottom" secondItem="lej-GN-aQe" secondAttribute="bottom" constant="8" id="nkk-8F-pUO"/>
+                                        <constraint firstItem="lej-GN-aQe" firstAttribute="leading" secondItem="Zg2-Ez-tV7" secondAttribute="leading" constant="20" id="okt-Dl-4kW"/>
+                                        <constraint firstAttribute="trailing" secondItem="lej-GN-aQe" secondAttribute="trailing" constant="8" id="sUM-uq-bCd"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
-                                            <exclude reference="Jc9-Kn-fHN"/>
                                             <exclude reference="60n-kC-Sqj"/>
                                             <exclude reference="7SM-9E-Vby"/>
                                             <exclude reference="nkk-8F-pUO"/>
@@ -866,7 +841,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="infoCell" rowHeight="65" id="xgN-JS-cYp" customClass="InfoCell" customModule="HealthyAndWhole" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="292" width="600" height="65"/>
+                                <rect key="frame" x="0.0" y="267" width="600" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xgN-JS-cYp" id="c6U-56-GhE">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="64.5"/>

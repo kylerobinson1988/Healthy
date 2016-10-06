@@ -10,7 +10,6 @@ import UIKit
 
 class GraphCell: UITableViewCell {
 
-    @IBOutlet weak var indicator: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var graph: DesignableGraph!
     

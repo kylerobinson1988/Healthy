@@ -54,11 +54,13 @@ class LogMenuTVC: UITableViewController {
     
     func calculateWeeksComplete() {
         
+        weeksCompleted = 0
+        
         var daysCompleted = 0 {
             
             didSet {
                 
-                if daysCompleted % 7 == 0 { weeksCompleted += 1}
+                if daysCompleted % 7 == 0 { weeksCompleted += 1 }
                 
             }
             
@@ -66,9 +68,7 @@ class LogMenuTVC: UITableViewController {
         
         for item in logs {
             
-            if item.isComplete == true {
-                daysCompleted += 1
-            }
+            if item.isComplete == true { daysCompleted += 1 }
             
         }
         
