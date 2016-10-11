@@ -313,8 +313,7 @@ public enum GraphType: String {
                 let x = barStart + CGFloat(i) * barSpacing
                 let y = rect.maxY - spacingY * CGFloat(value) * CGFloat(progress)
                 
-//                endColor.set()
-                UIColor.whiteColor().set()
+                endColor.set()
                 
                 CGContextMoveToPoint(context, x, rect.minY)
                 CGContextAddLineToPoint(context, x, rect.maxY)

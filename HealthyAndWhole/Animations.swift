@@ -52,6 +52,14 @@ public class AnimatedView: UIView {
         
     }
     
+    public func finish() {
+        
+        timer?.invalidate()
+        paused = false
+        keyFrame = duration
+        
+    }
+    
     public func clearOut(time: NSTimeInterval) {
         
         timer?.invalidate()

@@ -79,7 +79,7 @@ class LogMenuTVC: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 11
+        return 10
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -241,9 +241,17 @@ class LogMenuTVC: UITableViewController {
             
         case 1:
             
-            let log = currentLog
+            if weeksCompleted != 8 {
+                
+                let log = currentLog
+                logSegue(log)
+                
+            } else {
+                
+                performSegueWithIdentifier("showGraphsSegue", sender: nil)
+                
+            }
             
-            logSegue(log)
             
         case 2: //Week 1
             

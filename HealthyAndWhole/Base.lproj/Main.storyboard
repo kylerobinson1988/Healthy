@@ -767,20 +767,20 @@
             </objects>
             <point key="canvasLocation" x="2665" y="-541"/>
         </scene>
-        <!--Table View Controller-->
+        <!--GraphsTVC-->
         <scene sceneID="pDG-Ah-8mV">
             <objects>
-                <tableViewController id="4Pd-p8-SLW" sceneMemberID="viewController">
+                <tableViewController id="4Pd-p8-SLW" customClass="GraphsTVC" customModule="HealthyAndWhole" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Yfg-na-882">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="graphCell" rowHeight="175" id="Uez-ch-vwj" customClass="GraphCell" customModule="HealthyAndWhole" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="175"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="graphCell" rowHeight="220" id="Uez-ch-vwj" customClass="GraphCell" customModule="HealthyAndWhole" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="220"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uez-ch-vwj" id="Zg2-Ez-tV7">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="174.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="219.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GRAPH CELL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lej-GN-aQe">
@@ -799,17 +799,26 @@
                                             </variation>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0YX-1R-04e" customClass="DesignableGraph" customModule="HealthyAndWhole" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="35" width="560" height="132"/>
+                                            <rect key="frame" x="8" y="35" width="584" height="176.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="176.5" id="ZZp-o8-ppx"/>
+                                            </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="barColor">
                                                     <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                                    <color key="value" red="0.59760600180000001" green="1" blue="0.54377348469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="value" red="0.0" green="0.82632970328282829" blue="0.64964963088866845" alpha="1" colorSpace="calibratedRGB"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                                    <color key="value" red="0.45182021960000002" green="1" blue="0.74491799749999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="value" red="0.28344878238723181" green="0.96959832702020199" blue="0.90569408201591473" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="linePadding">
+                                                    <real key="value" value="3"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="textPadding">
+                                                    <real key="value" value="10"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
@@ -818,8 +827,8 @@
                                         <constraint firstAttribute="trailing" secondItem="lej-GN-aQe" secondAttribute="trailing" constant="20" id="60n-kC-Sqj"/>
                                         <constraint firstItem="lej-GN-aQe" firstAttribute="leading" secondItem="Zg2-Ez-tV7" secondAttribute="leading" constant="20" id="7SM-9E-Vby"/>
                                         <constraint firstAttribute="bottom" secondItem="0YX-1R-04e" secondAttribute="bottom" constant="7.5" id="E2l-NZ-evb"/>
-                                        <constraint firstAttribute="trailing" secondItem="0YX-1R-04e" secondAttribute="trailing" constant="20" id="GeO-an-zr6"/>
-                                        <constraint firstItem="0YX-1R-04e" firstAttribute="leading" secondItem="Zg2-Ez-tV7" secondAttribute="leading" constant="20" id="Vi0-3t-St9"/>
+                                        <constraint firstAttribute="trailing" secondItem="0YX-1R-04e" secondAttribute="trailing" constant="8" id="GeO-an-zr6"/>
+                                        <constraint firstItem="0YX-1R-04e" firstAttribute="leading" secondItem="Zg2-Ez-tV7" secondAttribute="leading" constant="8" id="Vi0-3t-St9"/>
                                         <constraint firstItem="lej-GN-aQe" firstAttribute="top" secondItem="Zg2-Ez-tV7" secondAttribute="top" constant="8" id="XcY-Jh-WqA"/>
                                         <constraint firstItem="0YX-1R-04e" firstAttribute="top" secondItem="lej-GN-aQe" secondAttribute="bottom" constant="7.5" id="ndQ-nc-waq"/>
                                         <constraint firstAttribute="bottom" secondItem="lej-GN-aQe" secondAttribute="bottom" constant="8" id="nkk-8F-pUO"/>
@@ -836,12 +845,11 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="graph" destination="0YX-1R-04e" id="kHh-og-6sr"/>
-                                    <outlet property="indicator" destination="Zg2-Ez-tV7" id="TGd-uI-X83"/>
                                     <outlet property="titleLabel" destination="lej-GN-aQe" id="8mn-MO-ism"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="infoCell" rowHeight="65" id="xgN-JS-cYp" customClass="InfoCell" customModule="HealthyAndWhole" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="267" width="600" height="65"/>
+                                <rect key="frame" x="0.0" y="312" width="600" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xgN-JS-cYp" id="c6U-56-GhE">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="64.5"/>

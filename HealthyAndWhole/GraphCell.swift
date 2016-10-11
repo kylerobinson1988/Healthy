@@ -22,9 +22,14 @@ class GraphCell: UITableViewCell {
     
     func setupGraph() {
         
+        dayArray = []
+        weekArray = []
+        
         for item in user.log! {
             
             let log = item as! Log
+            
+//            print("Log Week \(log.week), Day \(log.day)")
             
             switch graphCategory {
                 
@@ -43,7 +48,7 @@ class GraphCell: UITableViewCell {
             case "stepCount":
                 dayArray.append(CGFloat(log.stepCount!))
             case "activeMinutes":
-                dayArray.append(CGFloat(log.activeMinutes!))
+                dayArray.append(CGFloat(log.activeMinutes! ?? 0))
             case "mood":
                 dayArray.append(CGFloat(log.mood!))
             case "closeness":
@@ -58,15 +63,24 @@ class GraphCell: UITableViewCell {
         
         var index = 0
         
-        for week in 1...6 {
+        for week in 1...7 {
             
             var sum = 0
             
-            for item in Int(dayArray[index])...Int(dayArray[index + 6]) { sum += item }
-            
-            weekArray.append(Grouping(name: "Week \(week)", value: CGFloat(sum / 7)))
+            for item in index...(index + 6) {
                 
-            index += 7
+//                print("Index: \(index)")
+                
+                let thingy = dayArray[item]
+
+                sum += Int(thingy)
+                index += 1
+
+            }
+            
+            weekArray.append(Grouping(name: "\(week)", value: CGFloat(sum / 7)))
+                
+//            index += 7
             
         }
         
@@ -74,6 +88,8 @@ class GraphCell: UITableViewCell {
         
         graph.groupings = weekArray
         graph.type = .Bars
+        
+        print(graph.groupings.map { $0.values })
         
         //Final config for the cell.
         
@@ -100,6 +116,9 @@ class GraphCell: UITableViewCell {
         default:
             titleLabel.text = "Closeness To God"
         }
+        
+        graph.duration = 0.4
+        graph.start()
         
     }
     
