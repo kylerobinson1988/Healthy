@@ -25,6 +25,7 @@ class GraphCell: UITableViewCell {
         dayArray = []
         weekArray = []
         
+<<<<<<< HEAD
         if demoMode == true {
             
             weekArray.append(Grouping(name: "1", value: 3))
@@ -70,6 +71,8 @@ class GraphCell: UITableViewCell {
             
         }
         
+=======
+>>>>>>> origin/master
         for item in user.log! {
             
             let log = item as! Log

@@ -241,6 +241,7 @@ class LogMenuTVC: UITableViewController {
             
         case 1:
             
+<<<<<<< HEAD
             if demoMode == true {
                 
                 performSegueWithIdentifier("showGraphsSegue", sender: nil)
@@ -248,6 +249,8 @@ class LogMenuTVC: UITableViewController {
                 
             }
             
+=======
+>>>>>>> origin/master
             if weeksCompleted != 8 {
                 
                 let log = currentLog
