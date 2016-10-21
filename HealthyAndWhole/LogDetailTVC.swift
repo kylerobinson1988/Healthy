@@ -168,6 +168,7 @@ class LogDetailTVC: UITableViewController, UITextFieldDelegate, UITextViewDelega
         }
         
         return true
+        
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {

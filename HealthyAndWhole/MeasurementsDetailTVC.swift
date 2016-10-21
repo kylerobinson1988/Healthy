@@ -12,6 +12,7 @@ let numberEntrySet = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
 class MeasurementsDetailTVC: UITableViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var headerInfo: UILabel!
     
     @IBOutlet weak var heightField: UITextField!
@@ -35,6 +36,8 @@ class MeasurementsDetailTVC: UITableViewController, UITextFieldDelegate, UIPicke
     
     var measurements: Measurements!
     
+    var finalMeasurements = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,12 +52,21 @@ class MeasurementsDetailTVC: UITableViewController, UITextFieldDelegate, UIPicke
         upperArmField.text = measurements.upperArm
         healthProblemsField.text = measurements.healthProblems
         
-        moodPicker.selectRow((Int(measurements.mood!) - 1), inComponent: 0, animated: false)
-        closenessPicker.selectRow((Int(measurements.closeness!) - 1), inComponent: 0, animated: false)
-
+        dailyMood = Int(measurements.mood!) >= 0 ? Int(measurements.mood!) : 0
+        closenessToGod = Int(measurements.closeness!) >= 0 ? Int(measurements.closeness!) : 0
         
+        moodPicker.selectRow(dailyMood - 1, inComponent: 0, animated: false)
+        closenessPicker.selectRow(closenessToGod - 1, inComponent: 0, animated: false)
+
 //        selectClose(Int(measurements.closeness! ?? 0))
 //        selectMood(Int(measurements.mood! ?? 0))
+        
+        if finalMeasurements == true {
+            
+            headerLabel.text = "Final Measurements"
+            headerInfo.text = "Now that you've finished the program, record your final measurements and compare them to your baselines."
+            
+        }
         
     }
     
@@ -149,7 +161,7 @@ class MeasurementsDetailTVC: UITableViewController, UITextFieldDelegate, UIPicke
             closenessToGod = row + 1
             
         default:
-            break
+            break 
             
         }
         
@@ -184,6 +196,8 @@ class MeasurementsDetailTVC: UITableViewController, UITextFieldDelegate, UIPicke
         closenessToGod != 0 &&
             dailyMood != 0 {
             measurements.isComplete = true
+        } else {
+            measurements.isComplete = false
         }
         
         do {

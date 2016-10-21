@@ -11,6 +11,9 @@ import CoreData
 
 var context: NSManagedObjectContext!
 
+var reminderHour = 12
+var reminderMinute = 30
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

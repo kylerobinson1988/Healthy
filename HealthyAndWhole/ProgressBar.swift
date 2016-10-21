@@ -23,8 +23,8 @@ import UIKit
         let fullPath = UIBezierPath(roundedRect: rect, cornerRadius: frame.size.height / 2)
         
         fullColor.set()
-        CGContextAddPath(context, fullPath.CGPath)
-        CGContextFillPath(context)
+        CGContextAddPath(context!, fullPath.CGPath)
+        CGContextFillPath(context!)
         
         //This rect is the progress bar. Width is calculated by multiplying the frame's width by the percentage the currentValue represents.
         let roundedRect = CGRect(origin: rect.origin, size: CGSize(width: currentValue * frame.size.width, height: rect.height))
@@ -32,8 +32,8 @@ import UIKit
         let progressPath = UIBezierPath(roundedRect: roundedRect, cornerRadius: frame.size.height / 2)
         
         progressColor.set()
-        CGContextAddPath(context, progressPath.CGPath)
-        CGContextFillPath(context)
+        CGContextAddPath(context!, progressPath.CGPath)
+        CGContextFillPath(context!)
         
     }
     

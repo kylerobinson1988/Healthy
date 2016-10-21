@@ -79,7 +79,7 @@ class LogMenuTVC: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 11
+        return 10
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -131,7 +131,7 @@ class LogMenuTVC: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("logMenuCell", forIndexPath: indexPath) as! LogMenuCell
             
             //Completed
-            if weeksCompleted == 8 {
+            if weeksCompleted == 8 || demoMode == true {
                 
                 cell.dayLabel.text = "Final Results"
                 cell.completionLabel.hidden = true
@@ -241,9 +241,24 @@ class LogMenuTVC: UITableViewController {
             
         case 1:
             
-            let log = currentLog
+            if demoMode == true {
+                
+                performSegueWithIdentifier("showGraphsSegue", sender: nil)
+                return
+                
+            }
             
-            logSegue(log)
+            if weeksCompleted != 8 {
+                
+                let log = currentLog
+                logSegue(log)
+                
+            } else {
+                
+                performSegueWithIdentifier("showGraphsSegue", sender: nil)
+                
+            }
+            
             
         case 2: //Week 1
             

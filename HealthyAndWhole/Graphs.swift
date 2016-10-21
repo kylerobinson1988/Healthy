@@ -177,7 +177,7 @@ public enum GraphType: String {
         case .StackBars: break
         }
         
-        groupingLabels.frame = CGRect(x: textPadding, y: rect.height - 25, width: rect.width - textPadding, height: 25)
+        groupingLabels.frame = CGRect(x: textPadding + 5, y: rect.height - 25, width: rect.width - textPadding - 25, height: 25)
         addSubview(groupingLabels)
         
         graphNameLabel.frame = CGRect(x: textPadding, y: 0, width: rect.width - textPadding * 2, height: 30)
@@ -219,24 +219,24 @@ public enum GraphType: String {
             
             guard let last = line.last else { continue }
             
-            CGContextSaveGState(context)
+            CGContextSaveGState(context!)
             
-            CGContextMoveToPoint(context, last.x, last.y)
-            CGContextMoveToPoint(context, rect.maxX - (spacingX / 2), rect.maxY)
-            CGContextAddLineToPoint(context, rect.minX + (spacingX / 2), rect.maxY)
+            CGContextMoveToPoint(context!, last.x, last.y)
+            CGContextMoveToPoint(context!, rect.maxX - (spacingX / 2), rect.maxY)
+            CGContextAddLineToPoint(context!, rect.minX + (spacingX / 2), rect.maxY)
             
             for point in line {
-                CGContextAddLineToPoint(context, point.x, point.y)
+                CGContextAddLineToPoint(context!, point.x, point.y)
             }
             
             endColor.set()
             
-            CGContextClip(context)
+            CGContextClip(context!)
             
             let gradient = CGGradientCreateWithColors(nil, [endColor.CGColor, endColor.colorWithAlphaComponent(0.1).CGColor], nil)
             
-            CGContextDrawLinearGradient(context, gradient, CGPoint(x: rect.midX, y: 0), CGPoint(x: rect.midX, y: rect.maxY), [])
-            CGContextRestoreGState(context)
+            CGContextDrawLinearGradient(context!, gradient!, CGPoint(x: rect.midX, y: 0), CGPoint(x: rect.midX, y: rect.maxY), [])
+            CGContextRestoreGState(context!)
             
         }
         
@@ -259,15 +259,15 @@ public enum GraphType: String {
                 if lastPoints.count > i {
                     
                     textColor.set()
-                    CGContextMoveToPoint(context, lastPoints[i].x, lastPoints[i].y)
-                    CGContextAddLineToPoint(context, x, y)
-                    CGContextStrokePath(context)
+                    CGContextMoveToPoint(context!, lastPoints[i].x, lastPoints[i].y)
+                    CGContextAddLineToPoint(context!, x, y)
+                    CGContextStrokePath(context!)
                     
                 }
                 
                 textColor.set()
                 
-                CGContextFillEllipseInRect(context, CGRect(x: x - 3, y: y - 3, width: 6, height: 6))
+                CGContextFillEllipseInRect(context!, CGRect(x: x - 3, y: y - 3, width: 6, height: 6))
                 
             }
             
@@ -287,7 +287,7 @@ public enum GraphType: String {
                 
                 let y = rect.maxY - spacingY * grouping.stacked(i)
                 
-                CGContextFillEllipseInRect(context, CGRect(x: x - 2, y: y - 2, width: 4, height: 4))
+                CGContextFillEllipseInRect(context!, CGRect(x: x - 2, y: y - 2, width: 4, height: 4))
                 
             }
             
@@ -300,7 +300,7 @@ public enum GraphType: String {
         let spacingX = rect.width / CGFloat(groupings.count)
         let spacingY = rect.height / CGFloat(maxValue)
         
-        CGContextSetLineWidth(context, 4)
+        CGContextSetLineWidth(context!, 4)
         
         for (i, grouping) in groupings.enumerate() {
             
@@ -313,20 +313,19 @@ public enum GraphType: String {
                 let x = barStart + CGFloat(i) * barSpacing
                 let y = rect.maxY - spacingY * CGFloat(value) * CGFloat(progress)
                 
-//                endColor.set()
-                UIColor.whiteColor().set()
+                endColor.set()
                 
-                CGContextMoveToPoint(context, x, rect.minY)
-                CGContextAddLineToPoint(context, x, rect.maxY)
+                CGContextMoveToPoint(context!, x, rect.minY)
+                CGContextAddLineToPoint(context!, x, rect.maxY)
                 
-                CGContextStrokePath(context)
+                CGContextStrokePath(context!)
                 
                 textColor.set()
                 
-                CGContextMoveToPoint(context, x, y)
-                CGContextAddLineToPoint(context, x, rect.maxY)
+                CGContextMoveToPoint(context!, x, y)
+                CGContextAddLineToPoint(context!, x, rect.maxY)
                 
-                CGContextStrokePath(context)
+                CGContextStrokePath(context!)
                 
             }
             

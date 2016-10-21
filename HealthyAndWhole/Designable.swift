@@ -19,9 +19,9 @@ extension Designable where Self: UIView {
     
     func prepare(context: CGContextRef?) -> CGContextRef? {
         
-        CGContextSetLineCap(context, .Round)
-        CGContextSetLineJoin(context, .Round)
-        CGContextSetLineWidth(context, 1)
+        CGContextSetLineCap(context!, .Round)
+        CGContextSetLineJoin(context!, .Round)
+        CGContextSetLineWidth(context!, 1)
         
         (borderColor ?? UIColor.lightGrayColor()).set()
         
@@ -42,15 +42,15 @@ extension Designable where Self: UIView {
         
         let context = UIGraphicsGetCurrentContext()
         
-        CGContextSetLineWidth(context, 1)
-        CGContextSetLineCap(context, .Round)
+        CGContextSetLineWidth(context!, 1)
+        CGContextSetLineCap(context!, .Round)
         
         lineColor.set()
         
-        CGContextMoveToPoint(context, 0.5, rect.height - 0.5)
-        CGContextAddLineToPoint(context, rect.width - 0.5, rect.height - 0.5)
+        CGContextMoveToPoint(context!, 0.5, rect.height - 0.5)
+        CGContextAddLineToPoint(context!, rect.width - 0.5, rect.height - 0.5)
         
-        CGContextStrokePath(context)
+        CGContextStrokePath(context!)
         
     }
     
@@ -72,14 +72,14 @@ extension Designable where Self: UIView {
         
         fillColor.set()
         
-        CGContextAddPath(context, path.CGPath)
-        CGContextFillPath(context)
+        CGContextAddPath(context!, path.CGPath)
+        CGContextFillPath(context!)
         
         borderColor.set()
         
-        CGContextSetLineWidth(context, borderWidth)
-        CGContextAddPath(context, path.CGPath)
-        CGContextStrokePath(context)
+        CGContextSetLineWidth(context!, borderWidth)
+        CGContextAddPath(context!, path.CGPath)
+        CGContextStrokePath(context!)
         
     }
     
@@ -120,14 +120,14 @@ extension Designable where Self: UIView {
         
         fillColor.set()
         
-        CGContextAddPath(context, path.CGPath)
-        CGContextFillPath(context)
+        CGContextAddPath(context!, path.CGPath)
+        CGContextFillPath(context!)
         
         borderColor.set()
         
-        CGContextSetLineWidth(context, borderWidth)
-        CGContextAddPath(context, path.CGPath)
-        CGContextStrokePath(context)
+        CGContextSetLineWidth(context!, borderWidth)
+        CGContextAddPath(context!, path.CGPath)
+        CGContextStrokePath(context!)
         
         leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 40))
         
@@ -164,14 +164,14 @@ extension Designable where Self: UIView {
         
         fillColor.set()
         
-        CGContextAddPath(context, path.CGPath)
-        CGContextFillPath(context)
+        CGContextAddPath(context!, path.CGPath)
+        CGContextFillPath(context!)
         
         borderColor.set()
         
-        CGContextSetLineWidth(context, borderWidth)
-        CGContextAddPath(context, path.CGPath)
-        CGContextStrokePath(context)
+        CGContextSetLineWidth(context!, borderWidth)
+        CGContextAddPath(context!, path.CGPath)
+        CGContextStrokePath(context!)
         
     }
     

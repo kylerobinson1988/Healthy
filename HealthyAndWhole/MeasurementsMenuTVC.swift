@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MeasurementsMenuTVC: UITableViewController {
 
@@ -14,7 +15,19 @@ class MeasurementsMenuTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "Measurements"
+//        self.navigationController?.navigationBar. = UIColor(red:0.15, green:0.53, blue:0.80, alpha:1.00)
 
+        tableView.tableFooterView = UIView(frame: CGRectZero)
+
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        measurements = []
+        
         for item in user.measurements! {
             
             let adjustedItem = item as! Measurements
@@ -23,7 +36,13 @@ class MeasurementsMenuTVC: UITableViewController {
         }
         
         tableView.reloadData()
-        tableView.tableFooterView = UIView(frame: CGRectZero)
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        
         
     }
 
@@ -31,13 +50,26 @@ class MeasurementsMenuTVC: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
-        return 1
+        return (user.complete == true || demoMode == true) ? 2 : 1
         
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return measurements.count + 1
+        if section == 0 {
+            return (user.complete == true || demoMode == true) ? measurements.count + 1 : measurements.count
+        } else {
+            
+            var isVerified = true
+            
+            for item in measurements {
+                
+                if item.isComplete == false { isVerified = false }
+                
+            }
+            
+            return isVerified == true ? 1 : 0
+        }
         
     }
 
@@ -70,21 +102,9 @@ class MeasurementsMenuTVC: UITableViewController {
             
         default:
             
-            if user.complete == false {
-                
-                let cell = tableView.dequeueReusableCellWithIdentifier("infoCell", forIndexPath: indexPath) as! InfoCell
-                
-                cell.infoLabel.text = "When you've completed the nine weeks, you'll enter the final measurements here."
-                
-                return cell
-                
-            } else {
-                
-                let cell = tableView.dequeueReusableCellWithIdentifier("graphCell", forIndexPath: indexPath) as! GraphCell
-                
-                return cell
-                
-            }
+            let cell = tableView.dequeueReusableCellWithIdentifier("compareCell", forIndexPath: indexPath)
+            
+            return cell
             
         }
     
@@ -103,6 +123,10 @@ class MeasurementsMenuTVC: UITableViewController {
         let measurementsDetailTVC = storyboard?.instantiateViewControllerWithIdentifier("measurementsDetailTVC") as! MeasurementsDetailTVC
         
         measurementsDetailTVC.measurements = measurements[index]
+        
+        if index == 1 {
+            measurementsDetailTVC.finalMeasurements = true
+        }
         
         self.navigationController?.pushViewController(measurementsDetailTVC, animated: true)
         

@@ -11,6 +11,8 @@ import CoreData
 
 var user: User!
 
+var demoMode = true
+
 class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -56,9 +58,10 @@ class HomeViewController: UIViewController {
                 newUser.weeksCompleted = 0
                 
                 let measurementEntity = NSEntityDescription.entityForName("Measurements", inManagedObjectContext: context)
-                let measurements = NSManagedObject(entity: measurementEntity!, insertIntoManagedObjectContext: context)
-                
-                newUser.measurements = NSSet(array: [measurements])
+                let startMeasurements = NSManagedObject(entity: measurementEntity!, insertIntoManagedObjectContext: context)
+                let finishMeasurements = NSManagedObject(entity: measurementEntity!, insertIntoManagedObjectContext: context)
+
+                newUser.measurements = NSSet(array: [startMeasurements, finishMeasurements])
                 
                 let formatter = NSDateFormatter()
                 formatter.dateFormat = "MM/dd/yyyy"
@@ -98,6 +101,20 @@ class HomeViewController: UIViewController {
         } catch let error as NSError {
             print("Error loading user: \(error)")
         }
+        
+    }
+    
+    //MARK: - IBActions
+    
+    @IBAction func buyBookPressed(sender: AnyObject) {
+        
+        UIApplication.sharedApplication().openURL(NSURL(string:"https://www.amazon.com/Healthy-Whole-Leah-Lesesne/dp/1537100637/ref=sr_1_1?ie=UTF8&qid=1476314743&sr=8-1&keywords=healthy+and+whole")!)
+        
+    }
+    
+    @IBAction func supplyListPressed(sender: AnyObject) {
+        
+        UIApplication.sharedApplication().openURL(NSURL(string:"http://www.shelemah.com/healthywholesupplylist/")!)
         
     }
 
