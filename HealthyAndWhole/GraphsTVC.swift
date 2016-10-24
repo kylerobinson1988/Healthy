@@ -24,7 +24,7 @@ class GraphsTVC: UITableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        return indexPath.section == 0 ? 50 : 220    
+        return indexPath.section == 0 ? 70 : 220
         
     }
 
@@ -40,7 +40,7 @@ class GraphsTVC: UITableViewController {
             
             let cell = tableView.dequeueReusableCellWithIdentifier("infoCell", forIndexPath: indexPath) as! InfoCell
             
-            cell.infoLabel.text = "You can see your progress across the eight weeks below."
+            cell.infoLabel.text = "You can see your progress across the eight weeks below. Tap a graph for that statistic's detail."
             
             return cell
             

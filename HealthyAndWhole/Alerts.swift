@@ -20,4 +20,24 @@ class Alert: NSObject {
         
     }
     
+    class func WarningWithCompletion(delegate: UIViewController, title: String, message: String, completion: (()->Void)?) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+            
+            if completion != nil {
+                completion!()
+                
+            }
+        
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: nil))
+        
+        delegate.presentViewController(alert, animated: true, completion: nil)
+        
+    }
+    
+    
 }

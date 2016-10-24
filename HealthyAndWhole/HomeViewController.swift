@@ -17,8 +17,6 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        fetchFromCoreData()
         
     }
     
@@ -26,6 +24,8 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBarHidden = true
+        
+        fetchFromCoreData()
         
     }
     

@@ -181,9 +181,9 @@
 				91F2F84C1D83079600BDF47E /* StatusCell.swift */,
 				918EDC821D9C909000B29A28 /* GraphsTVC.swift */,
 				91F2F8331D82E39400BDF47E /* GraphCell.swift */,
+				918C66211DBA9D11004EBF73 /* StatTVC.swift */,
 				918C661F1DBA9CD7004EBF73 /* StatDetailCell.swift */,
 				918C66231DBA9F09004EBF73 /* StatDetailCell2.swift */,
-				918C66211DBA9D11004EBF73 /* StatTVC.swift */,
 			);
 			name = Logs;
 			sourceTree = "<group>";

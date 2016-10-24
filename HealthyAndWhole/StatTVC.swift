@@ -18,6 +18,18 @@ class StatTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if demoMode == true {
+            
+            for item in 1...56 {
+                
+                statArray.append("\(item)")
+                statArray2.append("Porkins \(item)")
+                
+            }
+            
+            return
+        }
+        
         switch category {
             
         case "Water":
@@ -122,4 +134,197 @@ class StatTVC: UITableViewController {
         
     }
     
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        return statArray2.isEmpty == true ? 30 : 60
+        
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        guard statArray.count >= 56 else { return UITableViewCell() }
+        
+        switch indexPath.section {
+            
+        case 0:
+            
+            if statArray2.isEmpty == true {
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier("statDetailCell", forIndexPath: indexPath) as! StatDetailCell
+                
+                cell.cellLabel.text = statArray[indexPath.row]
+                
+                return cell
+                
+            } else {
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier("statDetailCell2", forIndexPath: indexPath) as! StatDetailCell2
+                
+                cell.topLabel.text = statArray[indexPath.row]
+                cell.bottomLabel.text = statArray2[indexPath.row]
+                
+                return cell
+
+            }
+            
+        case 1:
+            
+            if statArray2.isEmpty == true {
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier("statDetailCell", forIndexPath: indexPath) as! StatDetailCell
+                
+                cell.cellLabel.text = statArray[indexPath.row + 7]
+                
+                return cell
+                
+            } else {
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier("statDetailCell2", forIndexPath: indexPath) as! StatDetailCell2
+                
+                cell.topLabel.text = statArray[indexPath.row + 7]
+                cell.bottomLabel.text = statArray2[indexPath.row + 7]
+                
+                return cell
+                
+            }
+            
+        case 2:
+            
+            if statArray2.isEmpty == true {
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier("statDetailCell", forIndexPath: indexPath) as! StatDetailCell
+                
+                cell.cellLabel.text = statArray[indexPath.row + 14]
+                
+                return cell
+                
+            } else {
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier("statDetailCell2", forIndexPath: indexPath) as! StatDetailCell2
+                
+                cell.topLabel.text = statArray[indexPath.row + 14]
+                cell.bottomLabel.text = statArray2[indexPath.row + 14]
+                
+                return cell
+                
+            }
+            
+        case 3:
+            
+            if statArray2.isEmpty == true {
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier("statDetailCell", forIndexPath: indexPath) as! StatDetailCell
+                
+                cell.cellLabel.text = statArray[indexPath.row + 21]
+                
+                return cell
+                
+            } else {
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier("statDetailCell2", forIndexPath: indexPath) as! StatDetailCell2
+                
+                cell.topLabel.text = statArray[indexPath.row + 21]
+                cell.bottomLabel.text = statArray2[indexPath.row + 21]
+                
+                return cell
+                
+            }
+            
+        case 4:
+            
+            if statArray2.isEmpty == true {
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier("statDetailCell", forIndexPath: indexPath) as! StatDetailCell
+                
+                cell.cellLabel.text = statArray[indexPath.row + 28]
+                
+                return cell
+                
+            } else {
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier("statDetailCell2", forIndexPath: indexPath) as! StatDetailCell2
+                
+                cell.topLabel.text = statArray[indexPath.row + 28]
+                cell.bottomLabel.text = statArray2[indexPath.row + 28]
+                
+                return cell
+                
+            }
+            
+        case 5:
+            
+            if statArray2.isEmpty == true {
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier("statDetailCell", forIndexPath: indexPath) as! StatDetailCell
+                
+                cell.cellLabel.text = statArray[indexPath.row + 35]
+                
+                return cell
+                
+            } else {
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier("statDetailCell2", forIndexPath: indexPath) as! StatDetailCell2
+                
+                cell.topLabel.text = statArray[indexPath.row + 35]
+                cell.bottomLabel.text = statArray2[indexPath.row + 35]
+                
+                return cell
+                
+            }
+            
+        case 6:
+            
+            if statArray2.isEmpty == true {
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier("statDetailCell", forIndexPath: indexPath) as! StatDetailCell
+                
+                cell.cellLabel.text = statArray[indexPath.row + 42]
+                
+                return cell
+                
+            } else {
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier("statDetailCell2", forIndexPath: indexPath) as! StatDetailCell2
+                
+                cell.topLabel.text = statArray[indexPath.row + 42]
+                cell.bottomLabel.text = statArray2[indexPath.row + 42]
+                
+                return cell
+                
+            }
+            
+        default:
+            
+            if statArray2.isEmpty == true {
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier("statDetailCell", forIndexPath: indexPath) as! StatDetailCell
+                
+                cell.cellLabel.text = statArray[indexPath.row + 49]
+                
+                return cell
+                
+            } else {
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier("statDetailCell2", forIndexPath: indexPath) as! StatDetailCell2
+                
+                cell.topLabel.text = statArray[indexPath.row + 49]
+                cell.bottomLabel.text = statArray2[indexPath.row + 49]
+                
+                return cell
+                
+            }
+            
+        }
+        
+    }
+    
 }
+
+
+
+
+
+
+
+
+

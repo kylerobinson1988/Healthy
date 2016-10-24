@@ -153,6 +153,7 @@ class LogMenuTVC: UITableViewController {
             
             let cell = tableView.dequeueReusableCellWithIdentifier("logMenuCell", forIndexPath: indexPath) as! LogMenuCell
             
+            cell.completionLabel.text = "Incomplete"
             let log = logs[indexPath.row]
             
             cell.log = log
@@ -163,6 +164,7 @@ class LogMenuTVC: UITableViewController {
             
             let cell = tableView.dequeueReusableCellWithIdentifier("logMenuCell", forIndexPath: indexPath) as! LogMenuCell
             
+            cell.completionLabel.text = "Incomplete"
             let log = logs[indexPath.row + 7]
             
             cell.log = log
@@ -173,6 +175,7 @@ class LogMenuTVC: UITableViewController {
             
             let cell = tableView.dequeueReusableCellWithIdentifier("logMenuCell", forIndexPath: indexPath) as! LogMenuCell
             
+            cell.completionLabel.text = "Incomplete"
             let log = logs[indexPath.row + 14]
             
             cell.log = log
@@ -183,6 +186,7 @@ class LogMenuTVC: UITableViewController {
             
             let cell = tableView.dequeueReusableCellWithIdentifier("logMenuCell", forIndexPath: indexPath) as! LogMenuCell
             
+            cell.completionLabel.text = "Incomplete"
             let log = logs[indexPath.row + 21]
             
             cell.log = log
@@ -193,6 +197,7 @@ class LogMenuTVC: UITableViewController {
             
             let cell = tableView.dequeueReusableCellWithIdentifier("logMenuCell", forIndexPath: indexPath) as! LogMenuCell
             
+            cell.completionLabel.text = "Incomplete"
             let log = logs[indexPath.row + 28]
             
             cell.log = log
@@ -203,6 +208,7 @@ class LogMenuTVC: UITableViewController {
             
             let cell = tableView.dequeueReusableCellWithIdentifier("logMenuCell", forIndexPath: indexPath) as! LogMenuCell
             
+            cell.completionLabel.text = "Incomplete"
             let log = logs[indexPath.row + 35]
             
             cell.log = log
@@ -212,6 +218,7 @@ class LogMenuTVC: UITableViewController {
             
             let cell = tableView.dequeueReusableCellWithIdentifier("logMenuCell", forIndexPath: indexPath) as! LogMenuCell
             
+            cell.completionLabel.text = "Incomplete"
             let log = logs[indexPath.row + 42]
             
             cell.log = log
@@ -221,6 +228,7 @@ class LogMenuTVC: UITableViewController {
             
             let cell = tableView.dequeueReusableCellWithIdentifier("logMenuCell", forIndexPath: indexPath) as! LogMenuCell
             
+            cell.completionLabel.text = "Incomplete"
             let log = logs[indexPath.row + 49]
             
             cell.log = log

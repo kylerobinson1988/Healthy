@@ -10,66 +10,128 @@ import UIKit
 
 class ProfileTVC: UITableViewController {
 
+    @IBOutlet weak var notificationSwitch: UISwitch!
+    @IBOutlet weak var notificationPicker: UIPickerView!
+    
     var notificationsActivated = false
+    var amTruePMFalse = true
+    
+    var selectedHour = 12
+    var selectedMinute = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // MARK: - Picker methods
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        
+        return 3
+        
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+        switch component {
+            
+        case 0: //Hours
+            return 12
+            
+        case 1: //Minutes
+            
+            return 60
+            
+        default: //AM/PM
+            
+            return 2
+            
+        }
+        
     }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        switch component {
+            
+        case 0: //Hours
+            
+            return "\(row + 1)"
+            
+        case 1: //Minutes
+            
+            switch row {
+                
+            case 0...9:
+                
+                return "0\(row)"
+                
+            default:
+                
+                return "\(row)"
+                
+            }
+            
+        default:
+            
+            return row == 0 ? "AM" : "PM"
+            
+        }
+        
     }
-
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        switch component {
+            
+        case 0:
+            
+            selectedHour = Int(row + 1)
+            
+        case 1:
+            
+            selectedMinute = Int(row)
+            
+        default:
+            
+            amTruePMFalse = row == 0 ? true : false
+            
+        }
+        
+        setTime()
+        
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    func setTime() {
+    
+        if amTruePMFalse == true && selectedHour == 12 {
+            reminderHour = 0
+        } else if amTruePMFalse == false && selectedHour == 12 {
+            reminderHour = 12
+        } else {
+            reminderHour = amTruePMFalse == true ? selectedHour : selectedHour + 12
+        }
+        reminderMinute = selectedMinute
+        
+        print("Hour: \(reminderHour), Minute: \(reminderMinute)")
+        
+        if notificationsActivated == true {
+        
+            dailyReminder()
+        
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
 
     //MARK: - Actions
+    
+    @IBAction func switchFlipped(sender: AnyObject) {
+    
+        notificationsActivated = sender.on == true ? true : false
+    
+        dailyReminder()
+        
+    }
     
     func dailyReminder() {
         
@@ -86,7 +148,7 @@ class ProfileTVC: UITableViewController {
         
         let notification: UILocalNotification = UILocalNotification()
         notification.category = "Healthy & Whole"
-        notification.alertBody = "Don't forget to log your day in the app!"
+        notification.alertBody = "Remember to log your day in the app!"
         notification.fireDate = date
         notification.repeatInterval = NSCalendarUnit.Day
         
@@ -98,14 +160,19 @@ class ProfileTVC: UITableViewController {
         
     }
     
-    func resetData() {
+    
+    @IBAction func resetPressed(sender: AnyObject) {
         
-        context.deleteObject(user)
-        
-        do {
-            try context.save()
-        } catch let error as NSError {
-            print("Error deleting user: \(error)")
+        Alert.WarningWithCompletion(self, title: "Warning", message: "Are you sure you wish to delete your saved data? This action can't be undone.") { 
+            
+            context.deleteObject(user)
+            
+            do {
+                try context.save()
+            } catch let error as NSError {
+                print("Error deleting user: \(error)")
+            }
+            
         }
         
     }
