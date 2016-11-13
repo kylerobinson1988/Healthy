@@ -10,12 +10,21 @@ import UIKit
 
 class GraphsTVC: UITableViewController {
 
+    var selectedCategory = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+//        self.tableView.reloadData()
+        
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -52,15 +61,15 @@ class GraphsTVC: UITableViewController {
             case 0:
                 cell.graphCategory = "water"
             case 1:
-                cell.graphCategory = "breakfastCalories"
+                cell.graphCategory = "breakfast"
             case 2:
-                cell.graphCategory = "lunchCalories"
+                cell.graphCategory = "lunch"
             case 3:
-                cell.graphCategory = "dinnerCalories"
+                cell.graphCategory = "dinner"
             case 4:
-                cell.graphCategory = "snackCalories"
+                cell.graphCategory = "snacks"
             case 5:
-                cell.graphCategory = "sleepHours"
+                cell.graphCategory = "sleep"
             case 6:
                 cell.graphCategory = "stepCount"
             case 7:
@@ -77,8 +86,40 @@ class GraphsTVC: UITableViewController {
         }
         
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if indexPath.section == 0 { return }
+        
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! GraphCell
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let statTVC = storyboard.instantiateViewControllerWithIdentifier("statTVC") as! StatTVC
+        
+        statTVC.category = cell.graphCategory
+        
+        self.navigationController?.pushViewController(statTVC, animated: true)
+        
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -42,9 +42,9 @@ class LogDetailTVC: UITableViewController, UITextFieldDelegate, UITextViewDelega
     @IBOutlet weak var moodPicker: UIPickerView!
     @IBOutlet weak var closenessPicker: UIPickerView!
     
-    var dailyMood: Int = 0
+    var dailyMood: Int = 1
     
-    var closenessToGod: Int = 0
+    var closenessToGod: Int = 1
     
     var log: Log!
     
@@ -58,13 +58,13 @@ class LogDetailTVC: UITableViewController, UITextFieldDelegate, UITextViewDelega
         waterField.text = log.water! != 0 ? "\(log.water!)" : ""
 
         breakfastCaloriesField.text = log.breakfastCalories! != 0 ? "\(log.breakfastCalories!)" : ""
-        breakfastField.text = log.breakfast != nil ? "\(log.breakfast!)" : ""
+        breakfastField.text = log.breakfast != nil ? "\(log.breakfast!)" : "eg., Eggs, Whole Milk, Avocado"
         lunchCaloriesField.text = log.lunchCalories! != 0 ? "\(log.lunchCalories!)" : ""
-        lunchField.text = log.lunch != nil ? "\(log.lunch!)" : ""
+        lunchField.text = log.lunch != nil ? "\(log.lunch!)" : "eg., Caesar Salad, Apple, Sausage"
         dinnerCaloriesField.text = log.dinnerCalories! != 0 ? "\(log.dinnerCalories!)" : ""
-        dinnerField.text = log.dinner != nil ? "\(log.dinner!)" : ""
+        dinnerField.text = log.dinner != nil ? "\(log.dinner!)" : "eg., Beef Stew, Sweet Potato, Baked Beans"
         snacksCaloriesField.text = log.snackCalories! != 0 ? "\(log.snackCalories!)" : ""
-        snackField.text = log.snacks != nil ? "\(log.snacks!)" : ""
+        snackField.text = log.snacks != nil ? "\(log.snacks!)" : "eg., Nuts, Dark Chocolate"
         
         sleepHoursField.text = log.sleepTime! != 0 ? "\(log.sleepTime!)" : ""
         sleepQualityField.text = log.sleepInfo != nil ? "\(log.sleepInfo!)" : ""
@@ -175,7 +175,7 @@ class LogDetailTVC: UITableViewController, UITextFieldDelegate, UITextViewDelega
         
         switch textField {
             
-        case waterField, breakfastCaloriesField, lunchCaloriesField, dinnerCaloriesField, snacksCaloriesField, stepCountField, activeMinutesField:
+        case waterField, breakfastCaloriesField, lunchCaloriesField, dinnerCaloriesField, snacksCaloriesField, stepCountField, sleepHoursField, activeMinutesField:
             
             let aSet = NSCharacterSet(charactersInString:"0123456789").invertedSet
             let compSepByCharInSet = string.componentsSeparatedByCharactersInSet(aSet)
@@ -191,7 +191,6 @@ class LogDetailTVC: UITableViewController, UITextFieldDelegate, UITextViewDelega
     }
     
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-        
         
         return true
         

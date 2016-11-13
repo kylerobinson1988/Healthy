@@ -32,81 +32,81 @@ class StatTVC: UITableViewController {
         
         switch category {
             
-        case "Water":
+        case "water":
             
             for item in user.log! {
                 
-                statArray.append("\((item as! Log).water)")
+                statArray.append("\((item as! Log).water!) oz.")
                 
             }
             
-        case "Breakfast":
+        case "breakfast":
             
             for item in user.log! {
                 
-                statArray.append("\((item as! Log).breakfast)")
-                statArray2.append("\((item as! Log).breakfastCalories)")
+                statArray.append("\((item as! Log).breakfast!)")
+                statArray2.append("\((item as! Log).breakfastCalories!) calories")
                 
             }
             
-        case "Lunch":
+        case "lunch":
             
             for item in user.log! {
                 
-                statArray.append("\((item as! Log).lunch)")
-                statArray2.append("\((item as! Log).lunchCalories)")
+                statArray.append("\((item as! Log).lunch!)")
+                statArray2.append("\((item as! Log).lunchCalories!) calories")
                 
             }
             
-        case "Dinner":
+        case "dinner":
             
             for item in user.log! {
                 
-                statArray.append("\((item as! Log).dinner)")
-                statArray2.append("\((item as! Log).dinnerCalories)")
+                statArray.append("\((item as! Log).dinner!)")
+                statArray2.append("\((item as! Log).dinnerCalories!) calories")
                 
             }
             
-        case "Snacks":
+        case "snacks":
         
             for item in user.log! {
                 
-                statArray.append("\((item as! Log).snacks)")
-                statArray2.append("\((item as! Log).snacks)")
+                statArray.append("\((item as! Log).snacks!)")
+                statArray2.append("\((item as! Log).snackCalories!) calories")
                 
             }
             
-        case "Sleep":
+        case "sleep":
             
             for item in user.log! {
                 
-                statArray.append("\((item as! Log).sleepInfo)")
-                statArray2.append("\((item as! Log).sleepTime)")
+                statArray.append("\((item as! Log).sleepInfo!)")
+                statArray2.append("\((item as! Log).sleepTime!) hours")
                 
             }
             
-        case "Activity":
+        case "stepCount", "activeMinutes":
             
             for item in user.log! {
                 
-                statArray.append("\((item as! Log).stepCount)")
-                statArray2.append("\((item as! Log).activeMinutes)")
+                statArray.append("\((item as! Log).stepCount!) steps")
+                statArray2.append("\((item as! Log).activeMinutes!) active minutes")
                 
             }
             
-        case "Mood":
-            
-            for item in user.log! {
-                    
-                    statArray.append("\((item as! Log).mood)")
-                
-            }
-            
-        case "Closeness To God":
+        case "mood":
             
             for item in user.log! {
                     
-                    statArray.append("\((item as! Log).closeness)")
+                    statArray.append("\((item as! Log).mood!) out of 10")
+                
+            }
+            
+        case "closeness":
+            
+            for item in user.log! {
+                    
+                    statArray.append("\((item as! Log).closeness!) out of 10")
                     
             }
            

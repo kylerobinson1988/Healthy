@@ -40,15 +40,15 @@ class GraphCell: UITableViewCell {
                 
             case "water":
                 titleLabel.text = "Water Intake"
-            case "breakfastCalories":
+            case "breakfast":
                 titleLabel.text = "Breakfast Calories"
-            case "lunchCalories":
+            case "lunch":
                 titleLabel.text = "Lunch Calories"
-            case "dinnerCalories":
+            case "dinner":
                 titleLabel.text = "Dinner Calories"
-            case "snackCalories":
+            case "snacks":
                 titleLabel.text = "Snack Calories"
-            case "sleepHours":
+            case "sleep":
                 titleLabel.text = "Sleep Time"
             case "stepCount":
                 titleLabel.text = "Steps"
@@ -80,16 +80,16 @@ class GraphCell: UITableViewCell {
                 
             case "water":
                 dayArray.append(CGFloat(log.water!))
-            case "breakfastCalories":
+            case "breakfast":
                 dayArray.append(CGFloat(log.breakfastCalories!))
-            case "lunchCalories":
+            case "lunch":
                 dayArray.append(CGFloat(log.lunchCalories!))
-            case "dinnerCalories":
+            case "dinner":
                 dayArray.append(CGFloat(log.dinnerCalories!))
-            case "snackCalories":
+            case "snacks":
                 dayArray.append(CGFloat(log.snackCalories!))
-            case "sleepHours":
-                dayArray.append(CGFloat(log.sleepTime!))
+            case "sleep":
+                dayArray.append(CGFloat(log.sleepTime! ?? 0))
             case "stepCount":
                 dayArray.append(CGFloat(log.stepCount!))
             case "activeMinutes":
@@ -97,7 +97,7 @@ class GraphCell: UITableViewCell {
             case "mood":
                 dayArray.append(CGFloat(log.mood!))
             case "closeness":
-                dayArray.append(CGFloat(log.breakfastCalories!))
+                dayArray.append(CGFloat(log.closeness!))
             default:
                 break
             }
@@ -142,15 +142,15 @@ class GraphCell: UITableViewCell {
             
         case "water":
             titleLabel.text = "Water Intake"
-        case "breakfastCalories":
+        case "breakfast":
             titleLabel.text = "Breakfast Calories"
-        case "lunchCalories":
+        case "lunch":
             titleLabel.text = "Lunch Calories"
-        case "dinnerCalories":
+        case "dinner":
             titleLabel.text = "Dinner Calories"
-        case "snackCalories":
+        case "snacks":
             titleLabel.text = "Snack Calories"
-        case "sleepHours":
+        case "sleep":
             titleLabel.text = "Sleep Time"
         case "stepCount":
             titleLabel.text = "Steps"

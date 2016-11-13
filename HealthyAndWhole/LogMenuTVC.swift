@@ -62,6 +62,9 @@ class LogMenuTVC: UITableViewController {
                 
                 if daysCompleted % 7 == 0 { weeksCompleted += 1 }
                 
+                user.complete = weeksCompleted >= 8 ? true : false
+                
+                
             }
             
         }

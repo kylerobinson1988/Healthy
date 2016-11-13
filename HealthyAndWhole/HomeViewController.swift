@@ -11,7 +11,7 @@ import CoreData
 
 var user: User!
 
-var demoMode = true
+var demoMode = false
 
 class HomeViewController: UIViewController {
 
@@ -56,12 +56,40 @@ class HomeViewController: UIViewController {
                 newUser.name = ""
                 newUser.complete = false
                 newUser.weeksCompleted = 0
+                newUser.timerOn = false
+                newUser.timerHour = 0
+                newUser.timerMinute = 0
                 
                 let measurementEntity = NSEntityDescription.entityForName("Measurements", inManagedObjectContext: context)
                 let startMeasurements = NSManagedObject(entity: measurementEntity!, insertIntoManagedObjectContext: context)
-                let finishMeasurements = NSManagedObject(entity: measurementEntity!, insertIntoManagedObjectContext: context)
+                
+                (startMeasurements as! Measurements).height = ""
+                (startMeasurements as! Measurements).weight = ""
+                (startMeasurements as! Measurements).hip = ""
+                (startMeasurements as! Measurements).waist = ""
+                (startMeasurements as! Measurements).bust = ""
+                (startMeasurements as! Measurements).thigh = ""
+                (startMeasurements as! Measurements).upperArm = ""
+                (startMeasurements as! Measurements).healthProblems = ""
+                (startMeasurements as! Measurements).mood = 0
+                (startMeasurements as! Measurements).closeness = 0
+                (startMeasurements as! Measurements).isComplete = false
+                
+                let endMeasurements = NSManagedObject(entity: measurementEntity!, insertIntoManagedObjectContext: context)
+                
+                (endMeasurements as! Measurements).height = ""
+                (endMeasurements as! Measurements).weight = ""
+                (endMeasurements as! Measurements).hip = ""
+                (endMeasurements as! Measurements).waist = ""
+                (endMeasurements as! Measurements).bust = ""
+                (endMeasurements as! Measurements).thigh = ""
+                (endMeasurements as! Measurements).upperArm = ""
+                (endMeasurements as! Measurements).healthProblems = ""
+                (endMeasurements as! Measurements).mood = 0
+                (endMeasurements as! Measurements).closeness = 0
+                (endMeasurements as! Measurements).isComplete = false
 
-                newUser.measurements = NSSet(array: [startMeasurements, finishMeasurements])
+                newUser.measurements = NSOrderedSet(array: [startMeasurements, endMeasurements])
                 
                 let formatter = NSDateFormatter()
                 formatter.dateFormat = "MM/dd/yyyy"
@@ -118,5 +146,11 @@ class HomeViewController: UIViewController {
         
     }
 
+    @IBAction func facebookPressed(sender: AnyObject) {
+     
+        UIApplication.sharedApplication().openURL(NSURL(string:"https://www.facebook.com/groups/healthywhole/")!)
+        
+    }
+    
 }
 

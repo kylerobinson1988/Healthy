@@ -21,7 +21,10 @@ extension User {
     @NSManaged var startDate: String?
     @NSManaged var weeksCompleted: NSNumber?
     @NSManaged var user: NSSet?
-    @NSManaged var measurements: NSSet?
+    @NSManaged var measurements: NSOrderedSet?
     @NSManaged var log: NSOrderedSet?
-
+    @NSManaged var timerOn: NSNumber?
+    @NSManaged var timerHour: NSNumber?
+    @NSManaged var timerMinute: NSNumber?
+    
 }

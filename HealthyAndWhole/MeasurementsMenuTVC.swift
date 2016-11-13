@@ -20,7 +20,7 @@ class MeasurementsMenuTVC: UITableViewController {
 //        self.navigationController?.navigationBar. = UIColor(red:0.15, green:0.53, blue:0.80, alpha:1.00)
 
         tableView.tableFooterView = UIView(frame: CGRectZero)
-
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -28,7 +28,7 @@ class MeasurementsMenuTVC: UITableViewController {
         
         measurements = []
         
-        for item in user.measurements! {
+        for item in user.measurements ?? [] {
             
             let adjustedItem = item as! Measurements
             measurements.append(adjustedItem)
@@ -84,7 +84,7 @@ class MeasurementsMenuTVC: UITableViewController {
             case 0:
                 
                 let cell = tableView.dequeueReusableCellWithIdentifier("infoCell", forIndexPath: indexPath) as! InfoCell
-                cell.infoLabel.text = "Enter you starting measurements below. You can enter your final measurements after you finish the eight weeks of the program."
+                cell.infoLabel?.text = "Enter you starting measurements below. You can enter your final measurements after you finish the eight weeks of the program."
                 
                 return cell
                 
@@ -92,9 +92,9 @@ class MeasurementsMenuTVC: UITableViewController {
                 
                 let cell = tableView.dequeueReusableCellWithIdentifier("measurementCell", forIndexPath: indexPath) as! MeasurementCell
                 
-                cell.indicator.fillColor = measurements[indexPath.row - 1].isComplete == false ? UIColor.raspberryRed() : UIColor.mintGreen()
+                cell.indicator.fillColor = measurements[indexPath.row - 1].isComplete == true ? UIColor.mintGreen() : UIColor.raspberryRed()
                 
-                cell.titleLabel.text = indexPath.row == 1 ? "Baseline Measurements" : "Final Measurements"
+                cell.titleLabel?.text = indexPath.row == 1 ? "Starting Measurements" : "Final Measurements"
                 
                 return cell
                 
@@ -112,11 +112,36 @@ class MeasurementsMenuTVC: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if indexPath.section == 0 && indexPath.row != 0 { measurementsSegue(indexPath.row - 1) }
+        if indexPath.section == 0 && indexPath.row != 0 {
+            
+            measurementsSegue(indexPath.row - 1)
+        
+        }
         
     }
     
     // MARK: - Navigation
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        
+        if identifier == "compareSegue" && measurements.count >= 2 {
+            
+            if measurements[0].isComplete == true && measurements[1].isComplete == true {
+                
+                return true
+                
+            } else {
+                
+                Alert.Warning(self, title: "Error", message: "Please complete both Starting and Final Measurements to compare.")
+                return false
+                
+            }
+            
+        }
+        
+        return true
+        
+    }
 
     func measurementsSegue(index: Int) {
         

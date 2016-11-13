@@ -57,9 +57,6 @@ class MeasurementsDetailTVC: UITableViewController, UITextFieldDelegate, UIPicke
         
         moodPicker.selectRow(dailyMood - 1, inComponent: 0, animated: false)
         closenessPicker.selectRow(closenessToGod - 1, inComponent: 0, animated: false)
-
-//        selectClose(Int(measurements.closeness! ?? 0))
-//        selectMood(Int(measurements.mood! ?? 0))
         
         if finalMeasurements == true {
             
@@ -70,13 +67,17 @@ class MeasurementsDetailTVC: UITableViewController, UITextFieldDelegate, UIPicke
         
     }
     
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     // MARK: - TextField Methods
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         
         switch textField {
             
@@ -107,6 +108,7 @@ class MeasurementsDetailTVC: UITableViewController, UITextFieldDelegate, UIPicke
             
         }
         
+        return true
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
