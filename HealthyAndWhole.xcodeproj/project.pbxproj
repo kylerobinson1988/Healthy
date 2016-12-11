@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		912244441DAF031F0057C5B4 /* ProfileTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912244431DAF031F0057C5B4 /* ProfileTVC.swift */; };
 		916CAC1D1D89D2D600B0A1B8 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916CAC1C1D89D2D600B0A1B8 /* Alerts.swift */; };
-		916CAC1F1D89DC6500B0A1B8 /* Log+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916CAC1E1D89DC6500B0A1B8 /* Log+CoreDataProperties.swift */; };
 		9172DAE91DC15CC100EE5A6B /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9172DAE81DC15CC100EE5A6B /* User+CoreDataProperties.swift */; };
 		918C661C1DB81947004EBF73 /* StartEndCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918C661B1DB81947004EBF73 /* StartEndCell.swift */; };
 		918C661E1DB81A19004EBF73 /* CompareTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918C661D1DB81A19004EBF73 /* CompareTVC.swift */; };
@@ -18,6 +17,8 @@
 		918C66241DBA9F09004EBF73 /* StatDetailCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918C66231DBA9F09004EBF73 /* StatDetailCell2.swift */; };
 		918EDC811D99F11B00B29A28 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918EDC801D99F11B00B29A28 /* Formatters.swift */; };
 		918EDC831D9C909000B29A28 /* GraphsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918EDC821D9C909000B29A28 /* GraphsTVC.swift */; };
+		9199D5CC1DEB1C2E00BCEBD8 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9199D5CA1DEB1C2E00BCEBD8 /* Log.swift */; };
+		9199D5CD1DEB1C2E00BCEBD8 /* Log+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9199D5CB1DEB1C2E00BCEBD8 /* Log+CoreDataProperties.swift */; };
 		91F2F7FD1D7DAB2200BDF47E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2F7FC1D7DAB2200BDF47E /* AppDelegate.swift */; };
 		91F2F7FF1D7DAB2200BDF47E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2F7FE1D7DAB2200BDF47E /* HomeViewController.swift */; };
 		91F2F8021D7DAB2200BDF47E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91F2F8001D7DAB2200BDF47E /* Main.storyboard */; };
@@ -38,7 +39,6 @@
 		91F2F8341D82E39400BDF47E /* GraphCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2F8331D82E39400BDF47E /* GraphCell.swift */; };
 		91F2F8361D82E7B600BDF47E /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2F8351D82E7B600BDF47E /* InfoCell.swift */; };
 		91F2F8381D82EA0400BDF47E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2F8371D82EA0400BDF47E /* Date.swift */; };
-		91F2F8401D82ED2800BDF47E /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2F83A1D82ED2800BDF47E /* Log.swift */; };
 		91F2F8421D82ED2800BDF47E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2F83C1D82ED2800BDF47E /* User.swift */; };
 		91F2F8431D82ED2800BDF47E /* Measurements+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2F83D1D82ED2800BDF47E /* Measurements+CoreDataProperties.swift */; };
 		91F2F8441D82ED2800BDF47E /* Measurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2F83E1D82ED2800BDF47E /* Measurements.swift */; };
@@ -49,7 +49,6 @@
 /* Begin PBXFileReference section */
 		912244431DAF031F0057C5B4 /* ProfileTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTVC.swift; sourceTree = "<group>"; };
 		916CAC1C1D89D2D600B0A1B8 /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
-		916CAC1E1D89DC6500B0A1B8 /* Log+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Log+CoreDataProperties.swift"; path = "../Log+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9172DAE11DC0299800EE5A6B /* HealthyAndWhole.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthyAndWhole.entitlements; sourceTree = "<group>"; };
 		9172DAE81DC15CC100EE5A6B /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		918C661B1DB81947004EBF73 /* StartEndCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartEndCell.swift; sourceTree = "<group>"; };
@@ -59,6 +58,9 @@
 		918C66231DBA9F09004EBF73 /* StatDetailCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatDetailCell2.swift; sourceTree = "<group>"; };
 		918EDC801D99F11B00B29A28 /* Formatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		918EDC821D9C909000B29A28 /* GraphsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphsTVC.swift; sourceTree = "<group>"; };
+		9199D5B91DEB1B9600BCEBD8 /* HealthyAndWhole-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HealthyAndWhole-Bridging-Header.h"; sourceTree = "<group>"; };
+		9199D5CA1DEB1C2E00BCEBD8 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		9199D5CB1DEB1C2E00BCEBD8 /* Log+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Log+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		91F2F7F91D7DAB2200BDF47E /* HealthyAndWhole.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthyAndWhole.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91F2F7FC1D7DAB2200BDF47E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91F2F7FE1D7DAB2200BDF47E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -81,7 +83,6 @@
 		91F2F8331D82E39400BDF47E /* GraphCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphCell.swift; sourceTree = "<group>"; };
 		91F2F8351D82E7B600BDF47E /* InfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 		91F2F8371D82EA0400BDF47E /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		91F2F83A1D82ED2800BDF47E /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = ../Log.swift; sourceTree = "<group>"; };
 		91F2F83C1D82ED2800BDF47E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../User.swift; sourceTree = "<group>"; };
 		91F2F83D1D82ED2800BDF47E /* Measurements+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Measurements+CoreDataProperties.swift"; path = "../Measurements+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		91F2F83E1D82ED2800BDF47E /* Measurements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Measurements.swift; path = ../Measurements.swift; sourceTree = "<group>"; };
@@ -107,6 +108,7 @@
 				91F2F8111D7DAB3B00BDF47E /* Assets */,
 				91F2F8181D7DABC300BDF47E /* Supporting Files */,
 				91F2F7FA1D7DAB2200BDF47E /* Products */,
+				9199D5B91DEB1B9600BCEBD8 /* HealthyAndWhole-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -194,10 +196,10 @@
 			isa = PBXGroup;
 			children = (
 				91F2F8031D7DAB2200BDF47E /* HealthyAndWhole.xcdatamodeld */,
-				91F2F83A1D82ED2800BDF47E /* Log.swift */,
-				916CAC1E1D89DC6500B0A1B8 /* Log+CoreDataProperties.swift */,
 				91F2F83C1D82ED2800BDF47E /* User.swift */,
 				9172DAE81DC15CC100EE5A6B /* User+CoreDataProperties.swift */,
+				9199D5CA1DEB1C2E00BCEBD8 /* Log.swift */,
+				9199D5CB1DEB1C2E00BCEBD8 /* Log+CoreDataProperties.swift */,
 				91F2F83D1D82ED2800BDF47E /* Measurements+CoreDataProperties.swift */,
 				91F2F83E1D82ED2800BDF47E /* Measurements.swift */,
 			);
@@ -237,7 +239,7 @@
 					91F2F7F81D7DAB2200BDF47E = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = ZXS7HWUJP6;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0810;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -284,6 +286,7 @@
 			files = (
 				91F2F8321D82E38A00BDF47E /* MeasurementCell.swift in Sources */,
 				91F2F84B1D8303BD00BDF47E /* Colors.swift in Sources */,
+				9199D5CC1DEB1C2E00BCEBD8 /* Log.swift in Sources */,
 				91F2F82D1D82E10600BDF47E /* Graphs.swift in Sources */,
 				912244441DAF031F0057C5B4 /* ProfileTVC.swift in Sources */,
 				91F2F7FF1D7DAB2200BDF47E /* HomeViewController.swift in Sources */,
@@ -302,11 +305,10 @@
 				91F2F8151D7DABA100BDF47E /* ProgressBar.swift in Sources */,
 				91F2F82E1D82E10600BDF47E /* Animations.swift in Sources */,
 				91F2F8051D7DAB2200BDF47E /* HealthyAndWhole.xcdatamodeld in Sources */,
-				916CAC1F1D89DC6500B0A1B8 /* Log+CoreDataProperties.swift in Sources */,
-				91F2F8401D82ED2800BDF47E /* Log.swift in Sources */,
 				91F2F8241D8246CD00BDF47E /* LogMenuCell.swift in Sources */,
 				918C66241DBA9F09004EBF73 /* StatDetailCell2.swift in Sources */,
 				91F2F82A1D82D7C000BDF47E /* MeasurementsMenuTVC.swift in Sources */,
+				9199D5CD1DEB1C2E00BCEBD8 /* Log+CoreDataProperties.swift in Sources */,
 				91F2F8171D7DABA100BDF47E /* Designable.swift in Sources */,
 				918EDC811D99F11B00B29A28 /* Formatters.swift in Sources */,
 				91F2F84D1D83079600BDF47E /* StatusCell.swift in Sources */,
@@ -438,6 +440,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Rocktransformed.HealthyAndWhole;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HealthyAndWhole-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -456,6 +459,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Rocktransformed.HealthyAndWhole;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HealthyAndWhole-Bridging-Header.h";
 				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

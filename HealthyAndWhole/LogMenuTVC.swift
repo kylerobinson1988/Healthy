@@ -75,8 +75,6 @@ class LogMenuTVC: UITableViewController {
             
         }
         
-//        weeksCompleted = daysCompleted / 7
-        
     }
 
     // MARK: - Table view data source
@@ -134,15 +132,15 @@ class LogMenuTVC: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("logMenuCell", forIndexPath: indexPath) as! LogMenuCell
             
             //Completed
-            if weeksCompleted == 8 || demoMode == true {
-                
-                cell.dayLabel.text = "Final Results"
-                cell.completionLabel.hidden = true
-                cell.completionIndicator.fillColor = UIColor(red:0.15, green:0.53, blue:0.80, alpha:1.00)
-                
-                return cell
-                
-            }
+//            if weeksCompleted == 8 || demoMode == true {
+//                
+//                cell.dayLabel.text = "Final Results"
+//                cell.completionLabel.hidden = true
+//                cell.completionIndicator.fillColor = UIColor(red:0.15, green:0.53, blue:0.80, alpha:1.00)
+//                
+//                return cell
+//                
+//            }
             
             //Not Completed
             if currentLog != nil {
@@ -252,82 +250,83 @@ class LogMenuTVC: UITableViewController {
             
         case 1:
             
-            if demoMode == true {
-                
-                performSegueWithIdentifier("showGraphsSegue", sender: nil)
-                return
-                
-            }
-            
-            if weeksCompleted != 8 {
+//            if demoMode == true {
+//                
+//                performSegueWithIdentifier("showGraphsSegue", sender: nil)
+//                return
+//                
+//            }
+//            
+//            if weeksCompleted != 8 {
                 
                 let log = currentLog
-                logSegue(log)
+                logSegue(log, week: weeksCompleted + 1)
                 
-            } else {
-                
-                performSegueWithIdentifier("showGraphsSegue", sender: nil)
-                
-            }
+//            } else {
+//                
+//                performSegueWithIdentifier("showGraphsSegue", sender: nil)
+//                
+//            }
             
             
         case 2: //Week 1
             
             let log = logs[indexPath.row]
             
-            logSegue(log)
+            logSegue(log, week: 1)
             
         case 3: //Week 2
             
             let log = logs[indexPath.row + 7]
             
-            logSegue(log)
+            logSegue(log, week: 2)
             
         case 4: //Week 3
             
             let log = logs[indexPath.row + 14]
             
-            logSegue(log)
+            logSegue(log, week: 3)
             
         case 5: //Week 4
             
             let log = logs[indexPath.row + 21]
             
-            logSegue(log)
+            logSegue(log, week: 4)
             
         case 6: //Week 5
             
             let log = logs[indexPath.row + 28]
             
-            logSegue(log)
+            logSegue(log, week: 5)
             
         case 7: //Week 6
             
             let log = logs[indexPath.row + 35]
             
-            logSegue(log)
+            logSegue(log, week: 6)
 
         case 8: //Week 7
             
             let log = logs[indexPath.row + 42]
             
-            logSegue(log)
+            logSegue(log, week: 7)
 
         default: //Week 8
             
             let log = logs[indexPath.row + 49]
             
-            logSegue(log)
+            logSegue(log, week: 8)
             
         }
         
     }
    
-    func logSegue(log: Log) {
+    func logSegue(log: Log, week: Int) {
         
         let logDetailTVC = storyboard?.instantiateViewControllerWithIdentifier("logDetailTVC") as! LogDetailTVC
         
         logDetailTVC.log = log
+        logDetailTVC.week = week
         
         self.navigationController?.pushViewController(logDetailTVC, animated: true)
         

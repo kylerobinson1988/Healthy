@@ -103,9 +103,20 @@ class HomeViewController: UIViewController {
                     for day in 1..<8 {
                         
                         let newLog = Log(entity: NSEntityDescription.entityForName("Log", inManagedObjectContext: context)!, insertIntoManagedObjectContext: context)
+                        
                         newLog.user = newUser
                         newLog.week = week
                         newLog.day = day
+                        
+                        newLog.multiVitamin = false
+                        newLog.codLiverOil = false
+                        newLog.probiotic = false
+                        
+                        newLog.devotionTime = false
+                        newLog.detoxTea = false
+                        newLog.dryBrushing = false
+                        newLog.activity = false
+                        
                         logs.append(newLog)
                         
                     }

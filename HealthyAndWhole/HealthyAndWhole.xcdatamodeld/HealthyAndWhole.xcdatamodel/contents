@@ -2,17 +2,24 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="16B2555" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
     <entity name="Log" representedClassName=".Log" syncable="YES">
         <attribute name="activeMinutes" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="activity" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="breakfast" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="breakfastCalories" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="closeness" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="codLiverOil" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="day" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="detoxTea" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="devotionTime" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="dinner" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dinnerCalories" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="dryBrushing" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="isComplete" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="lunch" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lunchCalories" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="mood" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="multiVitamin" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="prayerTime" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="probiotic" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="sleepInfo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sleepTime" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="snackCalories" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
@@ -51,7 +58,7 @@
         <relationship name="user" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="User" inverseName="user" inverseEntity="User" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Log" positionX="-18" positionY="108" width="128" height="345"/>
+        <element name="Log" positionX="-18" positionY="108" width="128" height="450"/>
         <element name="Measurements" positionX="-63" positionY="-18" width="128" height="225"/>
         <element name="User" positionX="-54" positionY="63" width="128" height="225"/>
     </elements>
