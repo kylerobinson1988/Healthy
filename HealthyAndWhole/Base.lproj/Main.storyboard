@@ -49,35 +49,8 @@
                                     <action selector="supplyListPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="khx-kf-VrU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7U-HK-2It" customClass="DesignableButton" customModule="HealthyAndWhole" customModuleProvider="target">
-                                <rect key="frame" x="20" y="395" width="280" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="P0T-Jk-RLU"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="23"/>
-                                <state key="normal" title="Buy The Book">
-                                    <color key="titleColor" red="0.1386845183" green="0.40729561240000001" blue="0.053233319520000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.4796967862" green="0.64948148770000003" blue="0.58778905770000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
-                                        <color key="value" red="1" green="1" blue="1" alpha="0.80072846283783783" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="buyBookPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8kP-sI-tbC"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itv-BK-JkP" customClass="DesignableButton" customModule="HealthyAndWhole" customModuleProvider="target">
-                                <rect key="frame" x="20" y="342" width="280" height="45"/>
+                                <rect key="frame" x="20" y="393" width="280" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="O1N-Uc-PK1"/>
                                 </constraints>
@@ -104,7 +77,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsN-yT-g9M" customClass="DesignableButton" customModule="HealthyAndWhole" customModuleProvider="target">
-                                <rect key="frame" x="20" y="289" width="280" height="45"/>
+                                <rect key="frame" x="20" y="340" width="280" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="b6E-Vm-9e5"/>
                                 </constraints>
@@ -131,7 +104,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEw-CX-Zpo" customClass="DesignableButton" customModule="HealthyAndWhole" customModuleProvider="target">
-                                <rect key="frame" x="20" y="236" width="280" height="45"/>
+                                <rect key="frame" x="20" y="287" width="280" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Az3-Hi-SqJ"/>
                                 </constraints>
@@ -158,10 +131,10 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HWgrey" translatesAutoresizingMaskIntoConstraints="NO" id="e8a-9b-twA">
-                                <rect key="frame" x="15" y="72" width="290" height="115"/>
+                                <rect key="frame" x="15" y="72" width="290" height="166"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60 Days To Complete Wellness" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hI-cS-BQj">
-                                <rect key="frame" x="8" y="194" width="304" height="24"/>
+                                <rect key="frame" x="8" y="245" width="304" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="ImI-cm-g19"/>
                                     <constraint firstAttribute="height" constant="24" id="tx0-wB-ddK"/>
@@ -208,14 +181,10 @@
                             <constraint firstItem="e8a-9b-twA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="1EV-PI-2NB"/>
                             <constraint firstItem="pEw-CX-Zpo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="3s8-Sm-ZCe"/>
                             <constraint firstItem="1hI-cS-BQj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="8SD-T5-JSc"/>
-                            <constraint firstItem="41v-yd-waG" firstAttribute="top" secondItem="x7U-HK-2It" secondAttribute="bottom" constant="8" id="8n3-1H-5PQ"/>
                             <constraint firstAttribute="trailing" secondItem="qsN-yT-g9M" secondAttribute="trailing" constant="20" id="9uG-9S-okf"/>
-                            <constraint firstItem="x7U-HK-2It" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="K11-s5-Zfh"/>
                             <constraint firstItem="itv-BK-JkP" firstAttribute="top" secondItem="qsN-yT-g9M" secondAttribute="bottom" constant="8" id="KwF-Uq-8kh"/>
                             <constraint firstItem="0CE-Pc-t0M" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="MKq-WZ-qZE"/>
                             <constraint firstItem="qsN-yT-g9M" firstAttribute="top" secondItem="pEw-CX-Zpo" secondAttribute="bottom" constant="8" id="OZv-F2-Fxc"/>
-                            <constraint firstAttribute="trailing" secondItem="x7U-HK-2It" secondAttribute="trailing" constant="20" id="Ofi-0m-1Pv"/>
-                            <constraint firstItem="x7U-HK-2It" firstAttribute="top" secondItem="itv-BK-JkP" secondAttribute="bottom" constant="8" id="PEL-5o-duh"/>
                             <constraint firstAttribute="trailing" secondItem="itv-BK-JkP" secondAttribute="trailing" constant="20" id="Pwr-iY-BkB"/>
                             <constraint firstAttribute="trailing" secondItem="e8a-9b-twA" secondAttribute="trailing" constant="15" id="RN0-b6-nGh"/>
                             <constraint firstItem="itv-BK-JkP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Ubo-v1-pg0"/>
@@ -226,6 +195,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0CE-Pc-t0M" secondAttribute="bottom" constant="20" id="e3a-gV-6Ee"/>
                             <constraint firstItem="pEw-CX-Zpo" firstAttribute="top" secondItem="1hI-cS-BQj" secondAttribute="bottom" constant="18" id="gRv-22-Yv0"/>
                             <constraint firstItem="qsN-yT-g9M" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="gS8-fO-VQC"/>
+                            <constraint firstItem="41v-yd-waG" firstAttribute="top" secondItem="itv-BK-JkP" secondAttribute="bottom" constant="10" id="hp4-ei-2jc"/>
                             <constraint firstItem="1hI-cS-BQj" firstAttribute="top" secondItem="e8a-9b-twA" secondAttribute="bottom" constant="7" id="jB1-xU-Xul"/>
                             <constraint firstAttribute="trailing" secondItem="0CE-Pc-t0M" secondAttribute="trailing" constant="20" id="mbl-GT-SeZ"/>
                             <constraint firstAttribute="trailing" secondItem="41v-yd-waG" secondAttribute="trailing" constant="20" id="pVo-AL-1P4"/>
@@ -325,7 +295,7 @@
                                         <rect key="frame" x="0.0" y="280" width="320" height="185"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mnx-Mi-g4k" id="aYU-Pa-QlB">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="184"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="184.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset Saved Info" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGo-eA-XRv">
@@ -1352,7 +1322,7 @@
                                         <rect key="frame" x="0.0" y="60" width="600" height="165"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2qd-4q-COM" id="RWy-lh-CLk">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="164"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="164.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Multi-Vitamin" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yct-W4-gKl">
@@ -1991,7 +1961,7 @@
                                         <rect key="frame" x="0.0" y="934" width="600" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FJz-2q-0FJ" id="2Db-aB-DhJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="54"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="54.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3rd-Xi-quK">
@@ -2025,7 +1995,7 @@
                                         <rect key="frame" x="0.0" y="989" width="600" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2xg-S8-0BK" id="ELp-pw-lfa">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="54"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="54.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Devotion Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjs-Yx-MGB">
@@ -2059,7 +2029,7 @@
                                         <rect key="frame" x="0.0" y="1044" width="600" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Yq-kZ-84I" id="ynA-7b-P7u">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="54"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="54.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detox Tea" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKr-4s-dAa">
@@ -2093,7 +2063,7 @@
                                         <rect key="frame" x="0.0" y="1099" width="600" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Had-uU-byQ" id="dgW-sz-9oc">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="54"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="54.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dry Brushing" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTb-GR-Qe1">

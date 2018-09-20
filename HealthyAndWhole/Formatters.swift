@@ -8,7 +8,7 @@
 
 import UIKit
 
-func numberFormatter(textField: UITextField, inout mainString: String, replacementString: String) -> Bool {
+func numberFormatter(textField: UITextField, mainString: inout String, replacementString: String) -> Bool {
     
     for item in numberEntrySet {
         

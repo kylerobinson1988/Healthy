@@ -19,7 +19,7 @@ public enum GraphType: String {
         
         didSet {
             
-            noDataLabel.hidden = groupings.count > 0
+            noDataLabel.isHidden = groupings.count > 0
             maxValueLabel.text = groupings.count > 0 ? "\(Int(maxValue))" : "0"
             minValueLabel.text = groupings.count > 0 ? "\(Int(minValue))" : "0"
             
@@ -29,9 +29,9 @@ public enum GraphType: String {
                 
                 let label = UILabel()
                 label.text = grouping.name
-                label.textAlignment = .Center
+                label.textAlignment = .center
                 label.textColor = textColor
-                label.font = .systemFontOfSize(12)
+                label.font = .systemFont(ofSize: 12)
                 groupingLabels.addArrangedSubview(label)
                 
             }
@@ -59,11 +59,11 @@ public enum GraphType: String {
     }
     
     @IBInspectable public var name: String = "" { didSet { graphNameLabel.text = name } }
-    @IBInspectable public var textColor: UIColor = .whiteColor() { didSet { setNeedsDisplay() } }
-    @IBInspectable public var barColor: UIColor = .whiteColor() { didSet { setNeedsDisplay() } }
-    @IBInspectable public var barColors: [UIColor] = [.whiteColor()] { didSet { setNeedsDisplay() } }
-    @IBInspectable public var startColor: UIColor = .grayColor() { didSet { setNeedsDisplay() } }
-    @IBInspectable public var endColor: UIColor = .grayColor() { didSet { setNeedsDisplay() } }
+    @IBInspectable public var textColor: UIColor = .white { didSet { setNeedsDisplay() } }
+    @IBInspectable public var barColor: UIColor = .white { didSet { setNeedsDisplay() } }
+    @IBInspectable public var barColors: [UIColor] = [.white] { didSet { setNeedsDisplay() } }
+    @IBInspectable public var startColor: UIColor = .gray { didSet { setNeedsDisplay() } }
+    @IBInspectable public var endColor: UIColor = .gray { didSet { setNeedsDisplay() } }
     @IBInspectable public var startPosition: CGPoint = CGPoint(x: 0.5, y: 0) { didSet { setNeedsDisplay() } }
     @IBInspectable public var endPosition: CGPoint = CGPoint(x: 0.5, y: 1) { didSet { setNeedsDisplay() } }
     @IBInspectable public var linePadding: CGFloat = 15 { didSet { setNeedsDisplay() } }
@@ -73,7 +73,7 @@ public enum GraphType: String {
     public lazy var graphNameLabel: UILabel = {
         
         let label = UILabel()
-        label.font = .systemFontOfSize(12)
+        label.font = .systemFont(ofSize: 12)
         label.textColor = self.textColor
         return label
         
@@ -82,7 +82,7 @@ public enum GraphType: String {
     public lazy var maxValueLabel: UILabel = {
         
         let label = UILabel()
-        label.font = .systemFontOfSize(12)
+        label.font = .systemFont(ofSize: 12)
         label.textColor = self.textColor
         return label
         
@@ -91,7 +91,7 @@ public enum GraphType: String {
     public lazy var minValueLabel: UILabel = {
         
         let label = UILabel()
-        label.font = .systemFontOfSize(12)
+        label.font = .systemFont(ofSize: 12)
         label.textColor = self.textColor
         return label
         
@@ -100,7 +100,7 @@ public enum GraphType: String {
     public lazy var noDataLabel: UILabel = {
         
         let label = UILabel()
-        label.font = .systemFontOfSize(12)
+        label.font = .systemFont(ofSize: 12)
         label.textColor = self.textColor
         return label
         
@@ -109,24 +109,24 @@ public enum GraphType: String {
     public lazy var groupingLabels: UIStackView = {
         
         let stack = UIStackView()
-        stack.distribution = .EqualSpacing
+        stack.distribution = .equalSpacing
         return stack
         
     }()
     
     public override func prepareForInterfaceBuilder() {
         
-        groupings = Array(count: 30, repeatedValue: 1000).map { Grouping(value: CGFloat(arc4random_uniform($0) + $0 / 2)) }
+        groupings = Array(repeating: 1000, count: 30).map { Grouping(value: CGFloat(arc4random_uniform($0) + $0 / 2)) }
         
     }
     
-    public override func drawRect(rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         
         guard let context = UIGraphicsGetCurrentContext() else { return }
         
         barColor.set()
-        CGContextSetLineCap(context, .Round)
-        CGContextSetLineJoin(context, .Round)
+        context.setLineCap(.round)
+        context.setLineJoin(.round)
         
         layer.cornerRadius = cornerRadius
         layer.masksToBounds = true
@@ -136,16 +136,16 @@ public enum GraphType: String {
         let gl = CAGradientLayer()
         
         gl.frame = layer.bounds
-        gl.colors = [startColor.CGColor, endColor.CGColor]
+        gl.colors = [startColor.cgColor, endColor.cgColor]
         gl.startPoint = startPosition
         gl.endPoint = endPosition
         
         gl.setNeedsDisplay()
-        gl.renderInContext(context)
+        gl.render(in: context)
         
         // Top and Bottom Lines
         
-        CGContextSetLineWidth(context, 1)
+        context.setLineWidth(1)
         
         CGContextMoveToPoint(context, linePadding, 30)
         CGContextAddLineToPoint(context, rect.width - linePadding, 30)
@@ -153,7 +153,7 @@ public enum GraphType: String {
         CGContextMoveToPoint(context, linePadding, rect.height - 25)
         CGContextAddLineToPoint(context, rect.width - linePadding, rect.height - 25)
         
-        CGContextStrokePath(context)
+        context.strokePath()
         
         // Dash Mid Line
         
@@ -163,7 +163,7 @@ public enum GraphType: String {
         CGContextMoveToPoint(context, linePadding, CGRectGetMidY(rect))
         CGContextAddLineToPoint(context, rect.width - linePadding, CGRectGetMidY(rect))
         
-        CGContextStrokePath(context)
+        context.strokePath()
         
         //Content
         
@@ -173,7 +173,7 @@ public enum GraphType: String {
         
         switch type {
         case .Lines: drawLinesGraph(context, rect: graphRect)
-        case .Bars: drawBarsGraph(context, rect: graphRect)
+        case .Bars: drawBarsGraph(context: context, rect: graphRect)
         case .StackBars: break
         }
         
@@ -191,7 +191,7 @@ public enum GraphType: String {
         
     }
     
-    func drawLinesGraph(context: CGContextRef?, rect: CGRect) {
+    func drawLinesGraph(context: CGContext?, rect: CGRect) {
         
         let spacingX = rect.width / CGFloat(groupings.count)
         let spacingY = rect.height / CGFloat(maxValue)
@@ -200,15 +200,15 @@ public enum GraphType: String {
         
         var lines: [[CGPoint]] = []
         
-        for (i, grouping) in groupings.enumerate() {
+        for (i, grouping) in groupings.enumerated() {
             
             if lines.count == i { lines.append([]) }
             
             let x = rect.minX + spacingX * CGFloat(i) + (spacingX / 2)
             
-            for (i, _) in grouping.values.enumerate() {
+            for (i, _) in grouping.values.enumerated() {
                 
-                let y = rect.maxY - spacingY * grouping.stacked(i)
+                let y = rect.maxY - spacingY * grouping.stacked(i: i)
                 lines[i].append(CGPoint(x: x, y: y))
                 
             }
@@ -219,7 +219,7 @@ public enum GraphType: String {
             
             guard let last = line.last else { continue }
             
-            CGContextSaveGState(context!)
+            context!.saveGState()
             
             CGContextMoveToPoint(context!, last.x, last.y)
             CGContextMoveToPoint(context!, rect.maxX - (spacingX / 2), rect.maxY)
@@ -231,12 +231,12 @@ public enum GraphType: String {
             
             endColor.set()
             
-            CGContextClip(context!)
+            context!.clip()
             
             let gradient = CGGradientCreateWithColors(nil, [endColor.CGColor, endColor.colorWithAlphaComponent(0.1).CGColor], nil)
             
             CGContextDrawLinearGradient(context!, gradient!, CGPoint(x: rect.midX, y: 0), CGPoint(x: rect.midX, y: rect.maxY), [])
-            CGContextRestoreGState(context!)
+            context!.restoreGState()
             
         }
         
@@ -244,15 +244,15 @@ public enum GraphType: String {
         
         var lastPoints: [CGPoint] = []
         
-        for (i, grouping) in groupings.enumerate() {
+        for (i, grouping) in groupings.enumerated() {
             
             var points: [CGPoint] = []
             
             let x = rect.minX + spacingX * CGFloat(i) + (spacingX / 2)
             
-            for (i, _) in grouping.values.enumerate() {
+            for (i, _) in grouping.values.enumerated() {
                 
-                let y = rect.maxY - spacingY * grouping.stacked(i)
+                let y = rect.maxY - spacingY * grouping.stacked(i: i)
                 
                 points.append(CGPoint(x: x, y: y))
                 
@@ -261,7 +261,7 @@ public enum GraphType: String {
                     textColor.set()
                     CGContextMoveToPoint(context!, lastPoints[i].x, lastPoints[i].y)
                     CGContextAddLineToPoint(context!, x, y)
-                    CGContextStrokePath(context!)
+                    context!.strokePath()
                     
                 }
                 
@@ -279,13 +279,13 @@ public enum GraphType: String {
         
         startColor.set()
         
-        for (i, grouping) in groupings.enumerate() {
+        for (i, grouping) in groupings.enumerated() {
             
             let x = rect.minX + spacingX * CGFloat(i) + (spacingX / 2)
             
-            for (i, _) in grouping.values.enumerate() {
+            for (i, _) in grouping.values.enumerated() {
                 
-                let y = rect.maxY - spacingY * grouping.stacked(i)
+                let y = rect.maxY - spacingY * grouping.stacked(i: i)
                 
                 CGContextFillEllipseInRect(context!, CGRect(x: x - 2, y: y - 2, width: 4, height: 4))
                 
@@ -295,20 +295,20 @@ public enum GraphType: String {
         
     }
     
-    func drawBarsGraph(context: CGContextRef?, rect: CGRect) {
+    func drawBarsGraph(context: CGContext?, rect: CGRect) {
                 
         let spacingX = rect.width / CGFloat(groupings.count)
         let spacingY = rect.height / CGFloat(maxValue)
         
-        CGContextSetLineWidth(context!, 4)
+        context!.setLineWidth(4)
         
-        for (i, grouping) in groupings.enumerate() {
+        for (i, grouping) in groupings.enumerated() {
             
             let cX = rect.minX + spacingX * CGFloat(i) + (spacingX / 2)
             let barSpacing: CGFloat = 6
             let barStart: CGFloat = cX - CGFloat(grouping.values.count) / 2 * barSpacing
             
-            for (i, value) in grouping.values.enumerate() {
+            for (i, value) in grouping.values.enumerated() {
                 
                 let x = barStart + CGFloat(i) * barSpacing
                 let y = rect.maxY - spacingY * CGFloat(value) * CGFloat(progress)
@@ -318,14 +318,14 @@ public enum GraphType: String {
                 CGContextMoveToPoint(context!, x, rect.minY)
                 CGContextAddLineToPoint(context!, x, rect.maxY)
                 
-                CGContextStrokePath(context!)
+                context!.strokePath()
                 
                 textColor.set()
                 
                 CGContextMoveToPoint(context!, x, y)
                 CGContextAddLineToPoint(context!, x, rect.maxY)
                 
-                CGContextStrokePath(context!)
+                context!.strokePath()
                 
             }
             
